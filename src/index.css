@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0A0E14;
+  color: #E8EBF0;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0E14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C2130;
+  border-radius: 3px;
+  border: 1px solid rgba(62, 214, 255, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3ED6FF;
+}
+
+/* Glassmorphism Panel Utilities */
+.glass-panel {
+  background: rgba(19, 23, 34, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-elevated {
+  background: rgba(28, 33, 48, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(62, 214, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55), 0 0 15px rgba(62, 214, 255, 0.1);
+}
+
+.glass-panel-interactive {
+  background: rgba(19, 23, 34, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-interactive:hover {
+  border-color: rgba(62, 214, 255, 0.4);
+  box-shadow: 0 0 20px rgba(62, 214, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(62, 214, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(62, 214, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Radar Scan Line */
+.radar-sweep {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3ED6FF, transparent);
+  box-shadow: 0 0 12px #3ED6FF;
+  animation: radarScan 3s linear infinite;
+}
+
+@keyframes radarScan {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* CRT Scanlines Overlay */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Glow effects */
+.text-cyan-glow {
+  text-shadow: 0 0 10px rgba(62, 214, 255, 0.6);
+}
+
+.text-amber-glow {
+  text-shadow: 0 0 10px rgba(255, 180, 84, 0.6);
+}
+
+.text-coral-glow {
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
+}
+
+/* Custom range sliders */
+input[type="range"] {
+  -webkit-appearance: none;
+  background: #1C2130;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  height: 6px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #3ED6FF;
+  cursor: pointer;
+  box-shadow: 0 0 8px #3ED6FF;
+  transition: transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
